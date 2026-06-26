@@ -4,6 +4,7 @@
 
 VertexArray::VertexArray(){
     glGenVertexArrays(1, &m_ID);
+    glBindVertexArray(m_ID);
 }
 
 void VertexArray::bind() const{

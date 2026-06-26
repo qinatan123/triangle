@@ -12,6 +12,15 @@ public:
     void swapBuffers();
     void pollEvents();
 
+    int getWidth() const;
+    int getHeight() const;
+
+    bool isKeyPressed(int glfwKey) const;
+
+    bool isMouseButtonPressed(int glfwButton) const;
+
+    void getMousePosition(double& x, double&y) const;
+
 private:
     GLFWwindow* m_Window;
 };

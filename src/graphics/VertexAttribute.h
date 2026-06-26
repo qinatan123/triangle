@@ -1,3 +1,5 @@
+#pragma once
+
 #include "VertexBuffer.h"
 #include <vector>
 
@@ -22,7 +24,3 @@ struct VertexLayout{
     int stride; // total size of one vertex in bytes
 };
 
-struct AttributeBinding{
-    VertexBuffer buffer();
-    VertexAttribute attribute;
-}; 

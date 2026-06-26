@@ -1,15 +1,7 @@
 #pragma once
 
+#include "VertexAttribute.h"
 #include <vector>
-
-struct VertexAttribute {
-    unsigned int index;
-    int size;
-    unsigned int type;
-    bool normalized;
-    unsigned int stride;
-    unsigned int offset; 
-};
 
 class VertexArray{
     public:
@@ -17,7 +9,8 @@ class VertexArray{
 
         void bind() const; 
         void addLayout(const VertexLayout& layout); 
-        void enableAttribute(unsigned int index); 
+        void enableAttribute(unsigned int index);
+        bool isValid() const { return m_ID != 0; }
 
     private: 
         unsigned int m_ID; 

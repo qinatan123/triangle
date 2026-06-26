@@ -3,19 +3,23 @@
 #include "graphics/VertexArray.h"
 #include "graphics/VertexBuffer.h"
 #include "graphics/VertexAttribute.h"
+#include "scene/geometry/Geometry.h"
+
 
 #include <vector>
 
 class Mesh {
     public:
-        Mesh::Mesh (const std::vector<float>& vertices, const VertexLayout& layout);
+        Mesh(Geometry geometry);
+        
         VertexArray getVAO() const;
+        
         unsigned int getVertexCount() const; 
     
     private:
+        Geometry m_geometry;
         VertexArray m_VAO;
         VertexBuffer m_VBO;
-        std::vector<AttributeBinding> m_binding;
 
         unsigned int m_vertexCount;
 }; 

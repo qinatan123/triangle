@@ -1,0 +1,4 @@
+/Users/qtan1/Desktop/triangle/build/CMakeFiles/glad.dir
+/Users/qtan1/Desktop/triangle/build/CMakeFiles/TriangleProject.dir
+/Users/qtan1/Desktop/triangle/build/CMakeFiles/edit_cache.dir
+/Users/qtan1/Desktop/triangle/build/CMakeFiles/rebuild_cache.dir

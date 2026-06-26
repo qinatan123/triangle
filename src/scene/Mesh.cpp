@@ -7,15 +7,13 @@
 // one Mesh
 // one VBO 
 // multiple attributes for one VAO
-Mesh::Mesh (const std::vector<float>& vertices, const VertexLayout& layout) :
+Mesh::Mesh (Geometry geometry): 
+    m_geometry(geometry),
     m_VAO(VertexArray()),
-    m_VBO(VertexBuffer(vertices.data(), vertices.size()*sizeof(float))),
-    m_vertexCount(vertices.size() / (layout.stride / sizeof(float))) 
+    m_VBO(VertexBuffer(geometry.vertices.data(), geometry.vertices.size()*sizeof(float))),
+    m_vertexCount(geometry.vertices.size() / (geometry.layout.stride / sizeof(float))) 
     {
-        // VAO record structure shared by all vertices in a currently bounded VBO
-        m_VBO.bind();
-        m_VAO.bind();
-        m_VAO.addLayout(layout);
+        m_VAO.addLayout(geometry.layout);
     }
 
 VertexArray Mesh::getVAO() const{

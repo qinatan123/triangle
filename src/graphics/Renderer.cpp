@@ -5,14 +5,19 @@
 
 void Renderer::clear()const{
     glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 
 void Renderer::draw(const Mesh& mesh, const Shader& shader) const{
-    shader.bind(); 
-    VertexArray vao = mesh.getVAO(); 
-    vao.bind(); 
+    if (!shader.isValid()) return;
+    shader.bind(); // activate the shader program
+
+    const VertexArray& vao = mesh.getVAO();
+    if (!vao.isValid()) return;
+    vao.bind(); // bind the mesh's vertex array object
+    
     unsigned int vertexCount = mesh.getVertexCount(); 
+    
     glDrawArrays(GL_TRIANGLES, 0, vertexCount);
 
 }
